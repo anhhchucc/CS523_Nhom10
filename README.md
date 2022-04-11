@@ -17,7 +17,7 @@
 |       Họ và tên       |      MSSV     |    Email              |
 | :-------------------: |:-------------:|:--------------------: |
 |    Lê Quang Hùng      |    20521363   |20521363@gm.uit.edu.vn |
-|     Tôn Anh Trúc      |    20520944   |205209443@gm.uit.edu.vn|
+|     Tôn Anh Trúc      |    20520944   |20520944@gm.uit.edu.vn|
 |    Huỳnh Thái Dương   |    20520461   |20520461@gm.uit.edu.vn |
 
 
