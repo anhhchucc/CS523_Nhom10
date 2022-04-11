@@ -11,7 +11,7 @@
 
 ## Giới thiệu nhóm
 
-- Số thứ tự nhóm: 12
+- Số thứ tự nhóm: 10
 - Thông tin thành viên: 
 
 |       Họ và tên       |      MSSV     |    Email              |
