@@ -17,7 +17,7 @@ void merge_file_balanced_f(int run_balanced_f[], int length_run_balanced_f, int 
 void merge_file_balanced_g(int run_balanced_g[], int length_run_balanced_g, int length_f0);
 void merge_sort(int arr[], int l, int r);
 void merge(int arr[], int l, int m, int r);
-int m, n, N, arr[10000], length_run_nature, run_nature[10000], count_merge = 0;
+int m, n, N, arr[100], length_run_nature, run_nature[100], count_merge = 0;
 fstream f0, f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10;
 int main()
 {
@@ -54,6 +54,7 @@ int main()
             }
             case 3: {
                 cout << "\n----------//  Duoi day la qua trinh thuc hien phuong phap tron da loi can bang  //----------\n";
+                count_merge = 0;
                 reimport();
                 balanced_multiway_merging();
                 break;
@@ -99,8 +100,8 @@ void nature_merging() {
     int distribute_numb = 0;
     while (n) {
         f0.open("C:\\Users\\leqh2\\Desktop\\f0.txt", ios::in);
-        char a[10000];
-        int arr[10000], i = 0;
+        char a[100];
+        int arr[100], i = 0;
         while (f0 >> a) {
             arr[i] = atoi(a);
             i++;
@@ -132,8 +133,8 @@ void nature_merging() {
 }
 void balanced_multiway_merging() {
     f0.open("C:\\Users\\leqh2\\Desktop\\f0.txt", ios::in);
-    char a[10000];
-    int arr_f0[10000], length_f0 = 0;
+    char a[100];
+    int arr_f0[100], length_f0 = 0;
     while (f0 >> a) {
         arr_f0[length_f0] = atoi(a);
         length_f0++;
@@ -152,6 +153,7 @@ void balanced_multiway_merging() {
         cout << "Nhap N <= " << count << ": ";
     cin >> N;
     distribute_file_balanced(arr_f0, length_f0);
+    cout << "\n----------------------------\nKet qua cuoi cung sau khi qua trinh tron ket thuc:\nf0: ";
     export_file();
     cout << "\n----------//  Phuong phap tron da loi can bang ket thuc  //----------\n";
 }
@@ -193,8 +195,8 @@ void distribute_file_run(int m) {
     f0.open("C:\\Users\\leqh2\\Desktop\\f0.txt", ios::in);
     f1.open("C:\\Users\\leqh2\\Desktop\\f1.txt", ios::out | ios::trunc);
     f2.open("C:\\Users\\leqh2\\Desktop\\f2.txt", ios::out | ios::trunc);
-    char a[10000];
-    int arr[10000], i = 0;
+    char a[100];
+    int arr[100], i = 0;
     while (f0 >> a) {
         arr[i] = atoi(a);
         i++;
@@ -222,7 +224,7 @@ void distribute_file_run(int m) {
     f0.close();
     f1.close();
     f2.close();
-    char b[10000], c[10000];
+    char b[100], c[100];
     f1.open("C:\\Users\\leqh2\\Desktop\\f1.txt", ios::in);
     f2.open("C:\\Users\\leqh2\\Desktop\\f2.txt", ios::in);
     cout << "f1: ";
@@ -267,7 +269,7 @@ void distribute_file_nature(int arr[], int z) {
     }
     f1.close();
     f2.close();
-    char b[10000], c[10000];
+    char b[100], c[100];
     f1.open("C:\\Users\\leqh2\\Desktop\\f1.txt", ios::in);
     f2.open("C:\\Users\\leqh2\\Desktop\\f2.txt", ios::in);
     cout << "\nf1: ";
@@ -329,7 +331,7 @@ void distribute_file_balanced(int arr_f0[], int length_f0) {
         }
     }
     int i = 0, j = 0;
-    int run_balanced_f[10000], length_run_balanced_f = 0;
+    int run_balanced_f[100], length_run_balanced_f = 0;
     while (i < length_f0) {
         for (int x = 0; x < N; x++) {
             int temp = 0;
@@ -341,8 +343,10 @@ void distribute_file_balanced(int arr_f0[], int length_f0) {
                     if (arr_f0[i] > arr_f0[i + 1])
                         break;
                 }
-                run_balanced_f[length_run_balanced_f] = temp;
-                length_run_balanced_f++;
+                if (temp != 0) {
+                    run_balanced_f[length_run_balanced_f] = temp;
+                    length_run_balanced_f++;
+                }
                 i++;
                 break;
             }
@@ -353,8 +357,10 @@ void distribute_file_balanced(int arr_f0[], int length_f0) {
                     if (arr_f0[i] > arr_f0[i + 1])
                         break;
                 }
-                run_balanced_f[length_run_balanced_f] = temp;
-                length_run_balanced_f++;
+                if (temp != 0) {
+                    run_balanced_f[length_run_balanced_f] = temp;
+                    length_run_balanced_f++;
+                }
                 i++;
                 break;
             }
@@ -365,8 +371,10 @@ void distribute_file_balanced(int arr_f0[], int length_f0) {
                     if (arr_f0[i] > arr_f0[i + 1])
                         break;
                 }
-                run_balanced_f[length_run_balanced_f] = temp;
-                length_run_balanced_f++;
+                if (temp != 0) {
+                    run_balanced_f[length_run_balanced_f] = temp;
+                    length_run_balanced_f++;
+                }
                 i++;
                 break;
             }
@@ -377,8 +385,10 @@ void distribute_file_balanced(int arr_f0[], int length_f0) {
                     if (arr_f0[i] > arr_f0[i + 1])
                         break;
                 }
-                run_balanced_f[length_run_balanced_f] = temp;
-                length_run_balanced_f++;
+                if (temp != 0) {
+                    run_balanced_f[length_run_balanced_f] = temp;
+                    length_run_balanced_f++;
+                }
                 i++;
                 break;
             }
@@ -389,8 +399,10 @@ void distribute_file_balanced(int arr_f0[], int length_f0) {
                     if (arr_f0[i] > arr_f0[i + 1])
                         break;
                 }
-                run_balanced_f[length_run_balanced_f] = temp;
-                length_run_balanced_f++;
+                if (temp != 0) {
+                    run_balanced_f[length_run_balanced_f] = temp;
+                    length_run_balanced_f++;
+                }
                 i++;
                 break;
             }
@@ -401,8 +413,10 @@ void distribute_file_balanced(int arr_f0[], int length_f0) {
                     if (arr_f0[i] > arr_f0[i + 1])
                         break;
                 }
-                run_balanced_f[length_run_balanced_f] = temp;
-                length_run_balanced_f++;
+                if (temp != 0) {
+                    run_balanced_f[length_run_balanced_f] = temp;
+                    length_run_balanced_f++;
+                }
                 i++;
                 break;
             }
@@ -413,8 +427,10 @@ void distribute_file_balanced(int arr_f0[], int length_f0) {
                     if (arr_f0[i] > arr_f0[i + 1])
                         break;
                 }
-                run_balanced_f[length_run_balanced_f] = temp;
-                length_run_balanced_f++;
+                if (temp != 0) {
+                    run_balanced_f[length_run_balanced_f] = temp;
+                    length_run_balanced_f++;
+                }
                 i++;
                 break;
             }
@@ -425,8 +441,10 @@ void distribute_file_balanced(int arr_f0[], int length_f0) {
                     if (arr_f0[i] > arr_f0[i + 1])
                         break;
                 }
-                run_balanced_f[length_run_balanced_f] = temp;
-                length_run_balanced_f++;
+                if (temp != 0) {
+                    run_balanced_f[length_run_balanced_f] = temp;
+                    length_run_balanced_f++;
+                }
                 i++;
                 break;
             }
@@ -437,8 +455,10 @@ void distribute_file_balanced(int arr_f0[], int length_f0) {
                     if (arr_f0[i] >> arr_f0[i + 1])
                         break;
                 }
-                run_balanced_f[length_run_balanced_f] = temp;
-                length_run_balanced_f++;
+                if (temp != 0) {
+                    run_balanced_f[length_run_balanced_f] = temp;
+                    length_run_balanced_f++;
+                }
                 i++; 
                 break;
             }
@@ -449,8 +469,10 @@ void distribute_file_balanced(int arr_f0[], int length_f0) {
                     if (arr_f0[i] > arr_f0[i + 1])
                         break;
                 }
-                run_balanced_f[length_run_balanced_f] = temp;
-                length_run_balanced_f++;
+                if (temp != 0) {
+                    run_balanced_f[length_run_balanced_f] = temp;
+                    length_run_balanced_f++;
+                }
                 i++;
                 break;
             }
@@ -514,8 +536,8 @@ void merge_file_run(int m) {
     f0.open("C:\\Users\\leqh2\\Desktop\\f0.txt", ios::out);
     f1.open("C:\\Users\\leqh2\\Desktop\\f1.txt", ios::in);
     f2.open("C:\\Users\\leqh2\\Desktop\\f2.txt", ios::in);
-    char a[10000], b[10000];
-    int c[10000], arr_f1[10000], arr_f2[10000], i = 0, j = 0;
+    char a[100], b[100];
+    int c[100], arr_f1[100], arr_f2[100], i = 0, j = 0;
     while (f1 >> a) {
         arr_f1[i] = atoi(a);
         i++;
@@ -558,8 +580,8 @@ void merge_file_nature() {
     f0.open("C:\\Users\\leqh2\\Desktop\\f0.txt", ios::out);
     f1.open("C:\\Users\\leqh2\\Desktop\\f1.txt", ios::in);
     f2.open("C:\\Users\\leqh2\\Desktop\\f2.txt", ios::in);
-    char a[10000], b[10000];
-    int c[10000], arr_nature_f1[10000], arr_nature_f2[10000], length_nature_f1 = 0, length_nature_f2 = 0;
+    char a[100], b[100];
+    int c[100], arr_nature_f1[100], arr_nature_f2[100], length_nature_f1 = 0, length_nature_f2 = 0;
     while (f1 >> a) {
         arr_nature_f1[length_nature_f1] = atoi(a);
         length_nature_f1++;
@@ -663,7 +685,7 @@ void merge_file_balanced_f(int run_balanced_f[], int length_run_balanced_f, int 
         count_merge++;
     }
     else {
-        cout << "\n----------------------------\nKet qua sau khi tron lan thu " << count_merge << "!";
+        cout << "\n----------------------------\nKet qua sau khi tron lan thu " << count_merge << "!"; 
         count_merge++;
     }
     for (int i = 0; i < N; i++) {
@@ -822,20 +844,324 @@ void merge_file_balanced_f(int run_balanced_f[], int length_run_balanced_f, int 
             break;
         }
     }
-    if (length_balanced_f1 == length_f0) {
+    int run_balanced[100], length_run_balanced = 0, temp = 0, count_temp = 0, count_g = 0, i1 = 0, i2 = 0, i3 = 0, i4 = 0, i5 = 0, i6 = 0, i7 = 0, i8 = 0, i9 = 0, i10 = 0, count, numb_c = 0;
+    int length = 0;
+    while (length<length_run_balanced_f){
+        for (int x = 0; x < N; x++) {
+            count = 0;
+            switch (x) {
+            case 0: {
+                for (i1; i1 < length_balanced_f1; i1++) {
+                    c[numb_c] = arr_balanced_f1[i1];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_f[length])
+                        break;
+                }
+                i1++;
+                length++;
+                break;
+            }
+            case 1: {
+                for (i2; i2 < length_balanced_f2; i2++) {
+                    c[numb_c] = arr_balanced_f2[i2];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_f[length])
+                        break;
+                }
+                i2++;
+                length++;
+                break;
+            }
+            case 2: {
+                for (i3; i3 < length_balanced_f3; i3++) {
+                    c[numb_c] = arr_balanced_f3[i3];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_f[length])
+                        break;
+                }
+                i3++;
+                length++;
+                break;
+            }
+            case 3: {
+                for (i4; i4 < length_balanced_f4; i4++) {
+                    c[numb_c] = arr_balanced_f4[i4];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_f[length])
+                        break;
+                }
+                i4++;
+                length++;
+                break;
+            }
+            case 4: {
+                for (i5; i5 < length_balanced_f5; i5++) {
+                    c[numb_c] = arr_balanced_f5[i5];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_f[length])
+                        break;
+                }
+                i5++;
+                length++;
+                break;
+            }
+            case 5: {
+                for (i6; i6 < length_balanced_f6; i6++) {
+                    c[numb_c] = arr_balanced_f4[i6];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_f[length])
+                        break;
+                }
+                i6++;
+                length++;
+                break;
+            }
+            case 6: {
+                for (i7; i7 < length_balanced_f7; i7++) {
+                    c[numb_c] = arr_balanced_f7[i7];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_f[length])
+                        break;
+                }
+                i7++;
+                length++;
+                break;
+            }
+            case 7: {
+                for (i8; i8 < length_balanced_f8; i8++) {
+                    c[numb_c] = arr_balanced_f8[i8];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_f[length])
+                        break;
+                }
+                i8++;
+                length++;
+                break;
+            }
+            case 8: {
+                for (i9; i9 < length_balanced_f9; i9++) {
+                    c[numb_c] = arr_balanced_f9[i9];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_f[length])
+                        break;
+                }
+                i9++;
+                length++;
+                break;
+            }
+            case 9: {
+                for (i10; i10 < length_balanced_f10; i10++) {
+                    c[numb_c] = arr_balanced_f10[i10];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_f[length])
+                        break;
+                }
+                i10++;
+                length++;
+                break;
+            }
+            default:
+                break;
+            }
+        }
+        merge_sort(c, 0, numb_c - 1);
+        switch (count_g) {
+        case 0: {
+            for (int l = 0; l < numb_c; l++) {
+                g1 << c[l] << " ";
+                count_temp++;
+                temp++;
+            }
+            run_balanced[length_run_balanced] = temp;
+            length_run_balanced++;
+            temp = 0;
+            numb_c = 0;
+            break;
+        }
+        case 1: {
+            for (int l = 0; l < numb_c; l++) {
+                g2 << c[l] << " ";
+                temp++;
+            }
+            run_balanced[length_run_balanced] = temp;
+            length_run_balanced++;
+            temp = 0;
+            numb_c = 0;
+            break;
+        }
+        case 2: {
+            for (int l = 0; l < numb_c; l++) {
+                g3 << c[l] << " ";
+                temp++;
+            }
+            run_balanced[length_run_balanced] = temp;
+            length_run_balanced++;
+            temp = 0;
+            numb_c = 0;
+            break;
+        }
+        case 3: {
+            for (int l = 0; l < numb_c; l++) {
+                g4 << c[l] << " ";
+                temp++;
+            }
+            run_balanced[length_run_balanced] = temp;
+            length_run_balanced++;
+            temp = 0;
+            numb_c = 0;
+            break;
+        }
+        case 4: {
+            for (int l = 0; l < numb_c; l++) {
+                g5 << c[l] << " ";
+                temp++;
+            }
+            run_balanced[length_run_balanced] = temp;
+            length_run_balanced++;
+            temp = 0;
+            numb_c = 0;
+            break;
+        }
+        case 5: {
+            for (int l = 0; l < numb_c; l++) {
+                g6 << c[l] << " ";
+                temp++;
+            }
+            run_balanced[length_run_balanced] = temp;
+            length_run_balanced++;
+            temp = 0;
+            numb_c = 0;
+            break;
+        }
+        case 6: {
+            for (int l = 0; l < numb_c; l++) {
+                g7 << c[l] << " ";
+                temp;
+            }
+            run_balanced[length_run_balanced] = temp;
+            length_run_balanced++;
+            temp = 0;
+            numb_c = 0;
+            break;
+        }
+        case 7: {
+            for (int l = 0; l < numb_c; l++) {
+                g8 << c[l] << " ";
+                temp++;
+            }
+            run_balanced[length_run_balanced] = temp;
+            length_run_balanced++;
+            temp = 0;
+            numb_c = 0;
+            break;
+        }
+        case 8: {
+            for (int l = 0; l < numb_c; l++) {
+                g9 << c[l] << " ";
+                temp++;
+            }
+            run_balanced[length_run_balanced] = temp;
+            length_run_balanced++;
+            temp = 0;
+            numb_c = 0;
+            break;
+        }
+        case 9: {
+            for (int l = 0; l < numb_c; l++) {
+                g10 << c[l] << " ";
+                temp++;
+            }
+            run_balanced[length_run_balanced] = temp;
+            length_run_balanced++;
+            temp = 0;
+            numb_c = 0;
+            break;
+        }
+        default:
+            break;
+        }
+        count_g++;
+    }
+    for (int i = 0; i < N; i++) {
+        switch (i) {
+        case 0: {
+            f1.close();
+            g1.close();
+            break;
+        }
+        case 1: {
+            f2.close();
+            g2.close();
+            break;
+        }
+        case 2: {
+            f3.close();
+            g3.close();
+            break;
+        }
+        case 3: {
+            f4.close();
+            g4.close();
+            break;
+        }
+        case 4: {
+            f5.close();
+            g5.close();
+            break;
+        }
+        case 5: {
+            f6.close();
+            g6.close();
+            break;
+        }
+        case 6: {
+            f7.close();
+            g7.close();
+            break;
+        }
+        case 7: {
+            f8.close();
+            g8.close();
+            break;
+        }
+        case 8: {
+            f9.close();
+            g9.close();
+            break;
+        }
+        case 9: {
+            f10.close();
+            g10.close();
+            break;
+        }
+        default:
+            break;
+        }
+    }
+    if (count_temp == length_f0) {
         cout << "\n----------------------------\nKet qua sau khi tron lan thu " << count_merge << "!";
         count_merge++;
         cout << "\ng1: ";
         f0.open("C:\\Users\\leqh2\\Desktop\\f0.txt", ios::out | ios::trunc);
-        f1.open("C:\\Users\\leqh2\\Desktop\\f1.txt", ios::in);
+        g1.open("C:\\Users\\leqh2\\Desktop\\g1.txt", ios::in);
         char a[100];
         int arr_f0[100];
-        while (f1 >> a) {
+        while (g1 >> a) {
             cout << a << " ";
             f0 << a << " ";
         }
         f0.close();
-        f1.close();
+        g1.close();
         for (int i = 1; i < N; i++) {
             switch (i) {
             case 1: {
@@ -878,316 +1204,10 @@ void merge_file_balanced_f(int run_balanced_f[], int length_run_balanced_f, int 
                 break;
             }
         }
-        cout << "\n----------------------------\nf1 chi con 1 run dong thoi chieu dai dung bang chieu dai input\n=> Ket thuc viec tron, dua ra ket qua va ket thuc chuong trinh!\nf0: ";
-
+        cout << "\n----------------------------\ng1 chi con 1 run dong thoi chieu dai dung bang chieu dai input\n=> Ket thuc viec tron, dua ra ket qua va ket thuc chuong trinh!";
     }
-    else {
-        int run_balanced[100], length_run_balanced = 0, temp = 0, count_temp = 0, count_g = 0, i1 = 0, i2 = 0, i3 = 0, i4 = 0, i5 = 0, i6 = 0, i7 = 0, i8 = 0, i9 = 0, i10 = 0, count, numb_c = 0;
-        for (int length = 0; length <= length_run_balanced_f; length++) {
-            for (int x = 0; x < N; x++) {
-                count = 0;
-                switch (x) {
-                case 0: {
-                    for (i1; i1 < length_balanced_f1; i1++) {
-                        c[numb_c] = arr_balanced_f1[i1];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_f[length])
-                            break;
-                    }
-                    i1++;
-                    length++;
-                    break;
-                }
-                case 1: {
-                    for (i2; i2 < length_balanced_f2; i2++) {
-                        c[numb_c] = arr_balanced_f2[i2];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_f[length])
-                            break;
-                    }
-                    i2++;
-                    length++;
-                    break;
-                }
-                case 2: {
-                    for (i3; i3 < length_balanced_f3; i3++) {
-                        c[numb_c] = arr_balanced_f3[i3];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_f[length])
-                            break;
-                    }
-                    i3++;
-                    length++;
-                    break;
-                }
-                case 3: {
-                    for (i4; i4 < length_balanced_f4; i4++) {
-                        c[numb_c] = arr_balanced_f4[i4];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_f[length])
-                            break;
-                    }
-                    i4++;
-                    length++;
-                    break;
-                }
-                case 4: {
-                    for (i5; i5 < length_balanced_f5; i5++) {
-                        c[numb_c] = arr_balanced_f5[i5];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_f[length])
-                            break;
-                    }
-                    i5++;
-                    length++;
-                    break;
-                }
-                case 5: {
-                    for (i6; i6 < length_balanced_f6; i6++) {
-                        c[numb_c] = arr_balanced_f4[i6];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_f[length])
-                            break;
-                    }
-                    i6++;
-                    length++;
-                    break;
-                }
-                case 6: {
-                    for (i7; i7 < length_balanced_f7; i7++) {
-                        c[numb_c] = arr_balanced_f7[i7];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_f[length])
-                            break;
-                    }
-                    i7++;
-                    length++;
-                    break;
-                }
-                case 7: {
-                    for (i8; i8 < length_balanced_f8; i8++) {
-                        c[numb_c] = arr_balanced_f8[i8];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_f[length])
-                            break;
-                    }
-                    i8++;
-                    length++;
-                    break;
-                }
-                case 8: {
-                    for (i9; i9 < length_balanced_f9; i9++) {
-                        c[numb_c] = arr_balanced_f9[i9];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_f[length])
-                            break;
-                    }
-                    i9++;
-                    length++;
-                    break;
-                }
-                case 9: {
-                    for (i10; i10 < length_balanced_f10; i10++) {
-                        c[numb_c] = arr_balanced_f10[i10];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_f[length])
-                            break;
-                    }
-                    i10++;
-                    length++;
-                    break;
-                }
-                default:
-                    break;
-                }
-            }
-            merge_sort(c, 0, numb_c - 1);
-            switch (count_g) {
-            case 0: {
-                for (int l = 0; l < numb_c; l++) {
-                    g1 << c[l] << " ";
-                    count_temp++;
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 1: {
-                for (int l = 0; l < numb_c; l++) {
-                    g2 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 2: {
-                for (int l = 0; l < numb_c; l++) {
-                    g3 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 3: {
-                for (int l = 0; l < numb_c; l++) {
-                    g4 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 4: {
-                for (int l = 0; l < numb_c; l++) {
-                    g5 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 5: {
-                for (int l = 0; l < numb_c; l++) {
-                    g6 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 6: {
-                for (int l = 0; l < numb_c; l++) {
-                    g7 << c[l] << " ";
-                    temp;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 7: {
-                for (int l = 0; l < numb_c; l++) {
-                    g8 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 8: {
-                for (int l = 0; l < numb_c; l++) {
-                    g9 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 9: {
-                for (int l = 0; l < numb_c; l++) {
-                    g10 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            default:
-                break;
-            }
-            count_g++;
-        }
-        for (int i = 0; i < N; i++) {
-            switch (i) {
-            case 0: {
-                f1.close();
-                g1.close();
-                break;
-            }
-            case 1: {
-                f2.close();
-                g2.close();
-                break;
-            }
-            case 2: {
-                f3.close();
-                g3.close();
-                break;
-            }
-            case 3: {
-                f4.close();
-                g4.close();
-                break;
-            }
-            case 4: {
-                f5.close();
-                g5.close();
-                break;
-            }
-            case 5: {
-                f6.close();
-                g6.close();
-                break;
-            }
-            case 6: {
-                f7.close();
-                g7.close();
-                break;
-            }
-            case 7: {
-                f8.close();
-                g8.close();
-                break;
-            }
-            case 8: {
-                f9.close();
-                g9.close();
-                break;
-            }
-            case 9: {
-                f10.close();
-                g10.close();
-                break;
-            }
-            default:
-                break;
-            }
-        }
-
+    else
         merge_file_balanced_g(run_balanced, length_run_balanced, length_f0);
-    }
 }
 void merge_file_balanced_g(int run_balanced_g[], int length_run_balanced_g, int length_f0) {
     for (int i = 0; i < N; i++) {
@@ -1407,369 +1427,390 @@ void merge_file_balanced_g(int run_balanced_g[], int length_run_balanced_g, int 
             break;
         }
     }
-    if (length_balanced_g1 == length_f0) {
+    int temp = 0, count_temp = 0, count_f = 0, i1 = 0, i2 = 0, i3 = 0, i4 = 0, i5 = 0, i6 = 0, i7 = 0, i8 = 0, i9 = 0, i10 = 0, count, numb_c = 0;
+    int length = 0;
+    while(length<length_run_balanced_g){
+        for (int x = 0; x < N; x++) {
+            count = 0;
+            switch (x) {
+            case 0: {
+                for (i1; i1 < length_balanced_g1; i1++) {
+                    c[numb_c] = arr_balanced_g1[i1];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_g[length])
+                        break;
+                }
+                i1++;
+                length++;
+                break;
+            }
+            case 1: {
+                for (i2; i2 < length_balanced_g2; i2++) {
+                    c[numb_c] = arr_balanced_g2[i2];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_g[length])
+                        break;
+                }
+                i2++;
+                length++;
+                break;
+            }
+            case 2: {
+                for (i3; i3 < length_balanced_g3; i3++) {
+                    c[numb_c] = arr_balanced_g3[i3];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_g[length])
+                        break;
+                }
+                i3++;
+                length++;
+                break;
+            }
+            case 3: {
+                for (i4; i4 < length_balanced_g4; i4++) {
+                    c[numb_c] = arr_balanced_g4[i4];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_g[length])
+                        break;
+                }
+                i4++;
+                length++;
+                break;
+            }
+            case 4: {
+                for (i5; i5 < length_balanced_g5; i5++) {
+                    c[numb_c] = arr_balanced_g5[i5];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_g[length])
+                        break;
+                }
+                i5++;
+                length++;
+                break;
+            }
+            case 5: {
+                for (i6; i6 < length_balanced_g6; i6++) {
+                    c[numb_c] = arr_balanced_g4[i6];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_g[length])
+                        break;
+                }
+                i6++;
+                length++;
+                break;
+            }
+            case 6: {
+                for (i7; i7 < length_balanced_g7; i7++) {
+                    c[numb_c] = arr_balanced_g7[i7];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_g[length])
+                        break;
+                }
+                i7++;
+                length++;
+                break;
+            }
+            case 7: {
+                for (i8; i8 < length_balanced_g8; i8++) {
+                    c[numb_c] = arr_balanced_g8[i8];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_g[length])
+                        break;
+                }
+                i8++;
+                length++;
+                break;
+            }
+            case 8: {
+                for (i9; i9 < length_balanced_g9; i9++) {
+                    c[numb_c] = arr_balanced_g9[i9];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_g[length])
+                        break;
+                }
+                i9++;
+                length++;
+                break;
+            }
+            case 9: {
+                for (i10; i10 < length_balanced_g10; i10++) {
+                    c[numb_c] = arr_balanced_g10[i10];
+                    numb_c++;
+                    count++;
+                    if (count == run_balanced_g[length])
+                        break;
+                }
+                i10++;
+                length++;
+                break;
+            }
+            default:
+                break;
+            }
+        }
+        merge_sort(c, 0, numb_c - 1);
+        switch (count_f) {
+        case 0: {
+            for (int l = 0; l < numb_c; l++) {
+                f1 << c[l] << " ";
+                count_temp++;
+                temp++;
+            }
+            if (temp != 0) {
+                run_balanced[length_run_balanced] = temp;
+                length_run_balanced++;
+                temp = 0;
+            }
+            numb_c = 0;
+            break;
+        }
+        case 1: {
+            for (int l = 0; l < numb_c; l++) {
+                f2 << c[l] << " ";
+                temp++;
+            }
+            if (temp != 0) {
+                run_balanced[length_run_balanced] = temp;
+                length_run_balanced++;
+                temp = 0;
+            }
+            numb_c = 0;
+            break;
+        }
+        case 2: {
+            for (int l = 0; l < numb_c; l++) {
+                f3 << c[l] << " ";
+                temp++;
+            }
+            if (temp != 0) {
+                run_balanced[length_run_balanced] = temp;
+                length_run_balanced++;
+                temp = 0;
+            }
+            numb_c = 0;
+            break;
+        }
+        case 3: {
+            for (int l = 0; l < numb_c; l++) {
+                f4 << c[l] << " ";
+                temp++;
+            }
+            if (temp != 0) {
+                run_balanced[length_run_balanced] = temp;
+                length_run_balanced++;
+                temp = 0;
+            }
+            numb_c = 0;
+            break;
+        }
+        case 4: {
+            for (int l = 0; l < numb_c; l++) {
+                f5 << c[l] << " ";
+                temp++;
+            }
+            if (temp != 0) {
+                run_balanced[length_run_balanced] = temp;
+                length_run_balanced++;
+                temp = 0;
+            }
+            numb_c = 0;
+            break;
+        }
+        case 5: {
+            for (int l = 0; l < numb_c; l++) {
+                f6 << c[l] << " ";
+                temp++;
+            }
+            if (temp != 0) {
+                run_balanced[length_run_balanced] = temp;
+                length_run_balanced++;
+                temp = 0;
+            }
+            numb_c = 0;
+            break;
+        }
+        case 6: {
+            for (int l = 0; l < numb_c; l++) {
+                f7 << c[l] << " ";
+                temp++;
+            }
+            if (temp != 0) {
+                run_balanced[length_run_balanced] = temp;
+                length_run_balanced++;
+                temp = 0;
+            }
+            numb_c = 0;
+            break;
+        }
+        case 7: {
+            for (int l = 0; l < numb_c; l++) {
+                f8 << c[l] << " ";
+                temp++;
+            }
+            if (temp != 0) {
+                run_balanced[length_run_balanced] = temp;
+                length_run_balanced++;
+                temp = 0;
+            }
+            numb_c = 0;
+            break;
+        }
+        case 8: {
+            for (int l = 0; l < numb_c; l++) {
+                f9 << c[l] << " ";
+                temp++;
+            }
+            if (temp != 0) {
+                run_balanced[length_run_balanced] = temp;
+                length_run_balanced++;
+                temp = 0;
+            }
+            numb_c = 0;
+            break;
+        }
+        case 9: {
+            for (int l = 0; l < numb_c; l++) {
+                f10 << c[l] << " ";
+                temp++;
+            }
+            if (temp != 0) {
+                run_balanced[length_run_balanced] = temp;
+                length_run_balanced++;
+                temp = 0;
+            }
+            numb_c = 0;
+            break;
+        }
+        default:
+            break;
+        }
+        count_f++;
+    }
+    for (int i = 0; i < N; i++) {
+        switch (i) {
+        case 0: {
+            f1.close();
+            g1.close();
+            break;
+        }
+        case 1: {
+            f2.close();
+            g2.close();
+            break;
+        }
+        case 2: {
+            f3.close();
+            g3.close();
+            break;
+        }
+        case 3: {
+            f4.close();
+            g4.close();
+            break;
+        }
+        case 4: {
+            f5.close();
+            g5.close();
+            break;
+        }
+        case 5: {
+            f6.close();
+            g6.close();
+            break;
+        }
+        case 6: {
+            f7.close();
+            g7.close();
+            break;
+        }
+        case 7: {
+            f8.close();
+            g8.close();
+            break;
+        }
+        case 8: {
+            f9.close();
+            g9.close();
+            break;
+        }
+        case 9: {
+            f10.close();
+            g10.close();
+            break;
+        }
+        default:
+            break;
+        }
+    }
+    if (count_temp == length_f0) {
         cout << "\n----------------------------\nKet qua sau khi tron lan thu " << count_merge << "!";
         count_merge++;
-        cout << "\ng1: ";
+        cout << "\nf1: ";
         f0.open("C:\\Users\\leqh2\\Desktop\\f0.txt", ios::out | ios::trunc);
-        g1.open("C:\\Users\\leqh2\\Desktop\\g1.txt", ios::in);
+        f1.open("C:\\Users\\leqh2\\Desktop\\f1.txt", ios::in);
         char a[100];
         int arr_f0[100];
-        while (g1 >> a) {
+        while (f1 >> a) {
             cout << a << " ";
             f0 << a << " ";
         }
         f0.close();
-        g1.close();
+        f1.close();
         for (int i = 1; i < N; i++) {
             switch (i) {
             case 1: {
-                cout << "\ng2: NULL";
+                cout << "\nf2: NULL";
                 break;
             }
             case 2: {
-                cout << "\ng3: NULL";
+                cout << "\nf3: NULL";
                 break;
             }
             case 3: {
-                cout << "\ng4: NULL";
+                cout << "\nf4: NULL";
                 break;
             }
             case 4: {
-                cout << "\ng5: NULL";
+                cout << "\nf5: NULL";
                 break;
             }
             case 5: {
-                cout << "\ng6: NULL";
+                cout << "\nf6: NULL";
                 break;
             }
             case 6: {
-                cout << "\ng7: NULL";
+                cout << "\nf7: NULL";
                 break;
             }
             case 7: {
-                cout << "\ng8: NULL";
+                cout << "\nf8: NULL";
                 break;
             }
             case 8: {
-                cout << "\ng9: NULL";
+                cout << "\nf9: NULL";
                 break;
             }
             case 9: {
-                cout << "\ng10: NULL";
+                cout << "\nf10: NULL";
                 break;
             }
             default:
                 break;
             }
         }
-        cout << "\n----------------------------\ng1 chi con 1 run dong thoi chieu dai dung bang chieu dai input\n=> Ket thuc viec tron, dua ra ket qua va ket thuc chuong trinh!\nf0: ";
+        cout << "\n----------------------------\nf1 chi con 1 run dong thoi chieu dai dung bang chieu dai input\n=> Ket thuc viec tron, dua ra ket qua va ket thuc chuong trinh!";
 
     }
     else {
-        int temp = 0, count_temp = 0, count_f = 0, i1 = 0, i2 = 0, i3 = 0, i4 = 0, i5 = 0, i6 = 0, i7 = 0, i8 = 0, i9 = 0, i10 = 0, count, numb_c = 0;
-        for (int length = 0; length <= length_run_balanced_g; length++) {
-            for (int x = 0; x < N; x++) {
-                count = 0;
-                switch (x) {
-                case 0: {
-                    for (i1; i1 < length_balanced_g1; i1++) {
-                        c[numb_c] = arr_balanced_g1[i1];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_g[length])
-                            break;
-                    }
-                    i1++;
-                    length++;
-                    break;
-                }
-                case 1: {
-                    for (i2; i2 < length_balanced_g2; i2++) {
-                        c[numb_c] = arr_balanced_g2[i2];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_g[length])
-                            break;
-                    }
-                    i2++;
-                    length++;
-                    break;
-                }
-                case 2: {
-                    for (i3; i3 < length_balanced_g3; i3++) {
-                        c[numb_c] = arr_balanced_g3[i3];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_g[length])
-                            break;
-                    }
-                    i3++;
-                    length++;
-                    break;
-                }
-                case 3: {
-                    for (i4; i4 < length_balanced_g4; i4++) {
-                        c[numb_c] = arr_balanced_g4[i4];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_g[length])
-                            break;
-                    }
-                    i4++;
-                    length++;
-                    break;
-                }
-                case 4: {
-                    for (i5; i5 < length_balanced_g5; i5++) {
-                        c[numb_c] = arr_balanced_g5[i5];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_g[length])
-                            break;
-                    }
-                    i5++;
-                    length++;
-                    break;
-                }
-                case 5: {
-                    for (i6; i6 < length_balanced_g6; i6++) {
-                        c[numb_c] = arr_balanced_g4[i6];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_g[length])
-                            break;
-                    }
-                    i6++;
-                    length++;
-                    break;
-                }
-                case 6: {
-                    for (i7; i7 < length_balanced_g7; i7++) {
-                        c[numb_c] = arr_balanced_g7[i7];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_g[length])
-                            break;
-                    }
-                    i7++;
-                    length++;
-                    break;
-                }
-                case 7: {
-                    for (i8; i8 < length_balanced_g8; i8++) {
-                        c[numb_c] = arr_balanced_g8[i8];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_g[length])
-                            break;
-                    }
-                    i8++;
-                    length++;
-                    break;
-                }
-                case 8: {
-                    for (i9; i9 < length_balanced_g9; i9++) {
-                        c[numb_c] = arr_balanced_g9[i9];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_g[length])
-                            break;
-                    }
-                    i9++;
-                    length++;
-                    break;
-                }
-                case 9: {
-                    for (i10; i10 < length_balanced_g10; i10++) {
-                        c[numb_c] = arr_balanced_g10[i10];
-                        numb_c++;
-                        count++;
-                        if (count == run_balanced_g[length])
-                            break;
-                    }
-                    i10++;
-                    length++;
-                    break;
-                }
-                default:
-                    break;
-                }
-            }
-            merge_sort(c, 0, numb_c - 1);
-            switch (count_f) {
-            case 0: {
-                for (int l = 0; l < numb_c; l++) {
-                    f1 << c[l] << " ";
-                    count_temp++;
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 1: {
-                for (int l = 0; l < numb_c; l++) {
-                    f2 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 2: {
-                for (int l = 0; l < numb_c; l++) {
-                    f3 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 3: {
-                for (int l = 0; l < numb_c; l++) {
-                    f4 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 4: {
-                for (int l = 0; l < numb_c; l++) {
-                    f5 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 5: {
-                for (int l = 0; l < numb_c; l++) {
-                    f6 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 6: {
-                for (int l = 0; l < numb_c; l++) {
-                    f7 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 7: {
-                for (int l = 0; l < numb_c; l++) {
-                    f8 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 8: {
-                for (int l = 0; l < numb_c; l++) {
-                    f9 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            case 9: {
-                for (int l = 0; l < numb_c; l++) {
-                    f10 << c[l] << " ";
-                    temp++;
-                }
-                run_balanced[length_run_balanced] = temp;
-                length_run_balanced++;
-                temp = 0;
-                numb_c = 0;
-                break;
-            }
-            default:
-                break;
-            }
-            count_f++;
-        }
-        for (int i = 0; i < N; i++) {
-            switch (i) {
-            case 0: {
-                f1.close();
-                g1.close();
-                break;
-            }
-            case 1: {
-                f2.close();
-                g2.close();
-                break;
-            }
-            case 2: {
-                f3.close();
-                g3.close();
-                break;
-            }
-            case 3: {
-                f4.close();
-                g4.close();
-                break;
-            }
-            case 4: {
-                f5.close();
-                g5.close();
-                break;
-            }
-            case 5: {
-                f6.close();
-                g6.close();
-                break;
-            }
-            case 6: {
-                f7.close();
-                g7.close();
-                break;
-            }
-            case 7: {
-                f8.close();
-                g8.close();
-                break;
-            }
-            case 8: {
-                f9.close();
-                g9.close();
-                break;
-            }
-            case 9: {
-                f10.close();
-                g10.close();
-                break;
-            }
-            default:
-                break;
-            }
-        }
         merge_file_balanced_f(run_balanced, length_run_balanced, length_f0);
     }
 }
@@ -1784,7 +1825,7 @@ void merge_sort(int arr[], int l, int r) {
 void merge(int arr[], int l, int m, int r) {
     int n1 = m - l + 1;
     int n2 = r - m;
-    int L[10000], R[10000];
+    int L[100], R[100];
     for (int i = 0; i < n1; i++)
         L[i] = arr[l + i];
     for (int j = 0; j < n2; j++)
