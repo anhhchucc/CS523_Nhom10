@@ -147,11 +147,30 @@ void balanced_multiway_merging() {
     }
     cout << "f0: File input,output\nf_: File nguon\ng_: File dich\nSo luong file nguon va file dich bang nhau!\nSo luong file nguon phu thuoc vao so RUN co trong input\nThao tac tron ket thuc khi co 1 file nguon hoac file dich chi con 1 RUN dong thoi chieu dai dung bang chieu dai input!\n----------------------------";
     cout << "\nFile ban dau co " << count << " RUN nen co the chon toi da " << count << " file nguon!\n";
-    if (count > 10)
-        cout << "Nhap N <= 10: ";
-    else
-        cout << "Nhap N <= " << count << ": ";
-    cin >> N;
+    if (count > 10) {
+        while (1) {
+            cout << "Nhap 0 < N <= 10: ";
+            cin >> N;
+            if (N > 0 && N <= 10)
+                break;
+        }
+    }
+    else {
+        while (1) {
+            cout << "Nhap 0 < N <= " << count << ": ";
+            cin >> N;
+            if (N > 0 && N <= count)
+                break;
+        }
+    }
+    /*if (N > 10) {
+        cout << "Nhap N: ";
+        cin >> N;
+    }
+    else if (N <= 0 || N > count) {
+        cout << "Nhap N: ";
+        cin >> N;
+    }*/
     distribute_file_balanced(arr_f0, length_f0);
     cout << "\n----------------------------\nKet qua cuoi cung sau khi qua trinh tron ket thuc:\nf0: ";
     export_file();
