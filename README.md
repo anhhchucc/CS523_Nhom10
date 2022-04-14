@@ -1,6 +1,9 @@
-![**Cấu trúc dữ liệu và giải thuật nâng cao - CS523.M21.KHCL**](https://www.uit.edu.vn/sites/vi/files/banner_uit_0.png)
+<p align="center">
+<img src="https://www.uit.edu.vn/sites/vi/files/banner_uit_0.png"/>
+</p>
 
-# **Cấu trúc dữ liệu và giải thuật nâng cao - CS523.M21.KHCL**
+
+# <p align="center">**Cấu trúc dữ liệu và giải thuật nâng cao - CS523.M21.KHCL**</p>
 ## Giới thiệu môn học
 
 - Tên môn học: Cấu trúc dữ liệu và giải thuật nâng cao
