@@ -25,4 +25,4 @@
 
 
 ## Chủ đề seminar
-Tên chủ đề: External Sorting (Sắp xếp ngoại)
+Tên chủ đề: External Sort (Sắp xếp ngoại)
