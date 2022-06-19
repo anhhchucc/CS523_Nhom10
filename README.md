@@ -30,3 +30,5 @@ Tên chủ đề: External Sort (Sắp xếp ngoại)
 - Link: https://create.kahoot.it/details/cf67bbc0-4dbd-496d-a808-bd51b7429014
 - Username: Externalsorting10@gmail.com
 - Password: externalsorting1324
+## Link demo
+- https://anhhchucc.github.io/external_visualize_demo/#/
